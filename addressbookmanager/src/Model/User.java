@@ -53,7 +53,7 @@ public class User {
                 '}';
     }
 
-    @Override
+   @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
