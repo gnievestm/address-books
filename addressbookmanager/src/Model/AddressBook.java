@@ -15,7 +15,7 @@ public class AddressBook {
         if (users.isEmpty()) {
             this.users.add(user);
         } else if (findUserByIdNumber(user.getIdNumber()) == user) {
-            throw new java.lang.UnsupportedOperationException("Usuario ya existente");
+            return;
         } else {
             this.users.add(user);
         }
@@ -24,11 +24,11 @@ public class AddressBook {
 
     public void deleteUser(User user) {
         if (users.isEmpty()) {
-            throw new java.lang.UnsupportedOperationException("La lista esta vacia");
+            return;
         } else if (findUserByIdNumber(user.getIdNumber()) == user) {
             this.users.remove(user);
         } else {
-            throw new java.lang.UnsupportedOperationException("El usuario no esta en la lista");
+            return;
         }
     }
 
