@@ -12,13 +12,22 @@ public class AddressBook {
 
     public void addUser(User user) {
 
-        users.add(user);
-
+        User found = findUserByIdNumber(user.getIdNumber());
+        if(found==null){
+            users.add(user);
+        }
     }
 
     public void deleteUser(User user) {
 
-        users.remove(user);
+        int index = users.indexOf(user);
+
+        if (index != -1) {
+            users.remove(users);
+        } else {
+            System.out.println("El usuario no existe");
+        }
+
 
     }
 
@@ -30,7 +39,7 @@ public class AddressBook {
                 return users;
             }
         }
-        //throw new java.lang.UnsupportedOperationException("Not supported yet.");
+
         return  null;
     }
 
