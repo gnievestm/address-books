@@ -1,6 +1,7 @@
 package Model;
 import java.util.ArrayList;
 import java.util.List;
+import Model.UnitTest;
 
 public class AddressBook {
     private List<User> users;
@@ -11,7 +12,6 @@ public class AddressBook {
 
     public void addUser(User user) {
         users.add(user);
-        System.out.println(user);
     }
     public void deleteUser(User user) {
         users.remove(user);
