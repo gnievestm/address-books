@@ -58,9 +58,10 @@ public class Main {
 
         //unit test
 
-        System.out.println("unit test add: " + unitTestAddOK());
-        System.out.println("unit test found: " + unitTestFoundOK());
-
+        System.out.println("unit test add: " + testAddOK());
+        System.out.println("unit test found: " + testFoundOK());
+        System.out.println("unit test delete: " + testDeleteOK());
+        System.out.println("unit test Get Users: " +testGetUsersOK());
     }
 
     public static void showUsers(AddressBook addressBook) {
@@ -81,7 +82,7 @@ public class Main {
      * unit test to try add user that exist
      */
 
-    public static boolean unitTestAddOK() {
+    public static boolean testAddOK() {
         //Create the instance of the addressBook
         AddressBook addressBook = new AddressBook();
 
@@ -105,7 +106,7 @@ public class Main {
      * unit test to try search a user with a negative index
      */
 
-    public static boolean unitTestFoundOK() {
+    public static boolean testFoundOK() {
 
         //Create the instance of the addressBook
         AddressBook addressBook = new AddressBook();
@@ -117,5 +118,38 @@ public class Main {
         return resultFinal == resultExpected;
     }
 
+    /**
+     * unit test to validate the delete process
+     */
+
+    public static boolean testDeleteOK() {
+
+        //Create the instance of the addressBook
+        AddressBook addressBook = new AddressBook();
+        User userExample = new User(3, "Keila", "097678544", "Keila´s description");
+
+        addressBook.addUser(userExample);
+
+        int size = addressBook.getUsers().size();
+        boolean added = size ==1;
+
+        addressBook.deleteUser(userExample);
+
+        int size2 = addressBook.getUsers().size();
+
+        boolean deleted = size2 == 0;
+        return added && deleted;
+    }
+
+    /** Unit test to try obtein the users collection when it´s empty*/
+    public static boolean testGetUsersOK(){
+        AddressBook addressBook = new AddressBook();
+
+        int resultFinal=addressBook.getUsers().size();
+
+        int resultExpected=0;
+
+        return resultFinal == resultExpected;
+    }
 
 }
